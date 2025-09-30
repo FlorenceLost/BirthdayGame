@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://db10wpqxbkrax"]
+
+[ext_resource type="Script" uid="uid://ckaaeb12mp4a0" path="res://scenes/balloon.gd" id="1_bjw4k"]
+[ext_resource type="Texture2D" uid="uid://bh60ou8avfhpe" path="res://assetsPerson/balloon.png" id="1_tpd1t"]
+[ext_resource type="Script" uid="uid://dbnfjko2jfm2k" path="res://scenes/marker_ballon_mgr.gd" id="3_u045a"]
+[ext_resource type="PackedScene" uid="uid://cwws3ehvpijgb" path="res://scenes/color_ballon.tscn" id="4_u045a"]
+[ext_resource type="PackedScene" uid="uid://64rm6cek33dt" path="res://scenes/color_ballon_purple.tscn" id="5_i80d5"]
+[ext_resource type="PackedScene" uid="uid://dc42o7788cfwl" path="res://scenes/color_ballon_yellow.tscn" id="6_hsek3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eawp"]
+
+[node name="Balloon" type="Node2D"]
+scale = Vector2(10, 10)
+script = ExtResource("1_bjw4k")
+
+[node name="AreaPump" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPump"]
+position = Vector2(5, -12)
+shape = SubResource("RectangleShape2D_1eawp")
+
+[node name="SpriteUp" type="Sprite2D" parent="AreaPump"]
+unique_name_in_owner = true
+texture = ExtResource("1_tpd1t")
+region_enabled = true
+region_rect = Rect2(40, 2, 21, 27)
+
+[node name="SpriteDown" type="Sprite2D" parent="AreaPump"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, 2)
+texture = ExtResource("1_tpd1t")
+region_enabled = true
+region_rect = Rect2(72, 6, 21, 23)
+
+[node name="MarkerBallonMgr" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-10.3, -2.7)
+script = ExtResource("3_u045a")
+
+[node name="ColorBallon" parent="MarkerBallonMgr" instance=ExtResource("4_u045a")]
+
+[node name="ColorBallonYellow" parent="MarkerBallonMgr" instance=ExtResource("6_hsek3")]
+
+[node name="ColorBallonPurple" parent="MarkerBallonMgr" instance=ExtResource("5_i80d5")]
+
+[connection signal="input_event" from="AreaPump" to="." method="_on_area_pump_input_event"]

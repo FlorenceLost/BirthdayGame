@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://da2dxkc5fnr43"]
+
+[ext_resource type="Texture2D" uid="uid://dkt702aubtgjj" path="res://assetsPerson/Sprite-0001.png" id="1_w1pkn"]
+
+[node name="Cont_Bk" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_w1pkn")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 6
+patch_margin_top = 14
+patch_margin_right = 68
+patch_margin_bottom = 69

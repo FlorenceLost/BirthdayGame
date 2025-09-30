@@ -1,0 +1,570 @@
+[gd_scene load_steps=26 format=3 uid="uid://d0sjc0neix8xr"]
+
+[ext_resource type="Texture2D" uid="uid://rnhkfyvvu266" path="res://assetsPerson/Match1.png" id="1_80q71"]
+[ext_resource type="Script" uid="uid://cuyrg5lbvgo3h" path="res://scenes/match.gd" id="1_t0cgm"]
+[ext_resource type="Texture2D" uid="uid://dguml4a0n034d" path="res://assetsPerson/Fire.png" id="3_5rc6j"]
+[ext_resource type="Texture2D" uid="uid://5a3ibj8eokm0" path="res://assetsPerson/smile .png" id="4_su80s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0cgm"]
+size = Vector2(11, 9.4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rc6j"]
+size = Vector2(24, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_su80s"]
+size = Vector2(20, 9.4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su80s"]
+atlas = ExtResource("3_5rc6j")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtxuj"]
+atlas = ExtResource("3_5rc6j")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv342"]
+atlas = ExtResource("3_5rc6j")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dstc"]
+atlas = ExtResource("3_5rc6j")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et4mf"]
+atlas = ExtResource("3_5rc6j")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bnf7"]
+atlas = ExtResource("3_5rc6j")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d32o3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su80s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtxuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv342")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dstc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et4mf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bnf7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_mv342"]
+resource_name = "AllMove"
+loop_mode = 2
+
+[sub_resource type="Animation" id="Animation_80q71"]
+resource_name = "Box_Open"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("All/Area_Box_Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.4, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("All/Match_Box:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.4, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(14, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("All/Match_Box/Area_Match/Coll_Match:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.4, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("All/Area_Box_Top/Coll_Box:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.4, 1.49, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("All:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("All/Match_Box/Area_Match:input_pickable")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5rc6j"]
+resource_name = "Box_Rotation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("All:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_su80s"]
+resource_name = "Box_Visible"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("All:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("All:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.5708, -1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("All/Match_Box:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(14, 0), Vector2(14, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("All/Area_Box_Top/Coll_Box:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Area_MatchLoad:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Area_MatchLoad/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Area_MatchLoad:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Area_MatchLoad:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-6.11959e-07, -14), Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Area_MatchLoad:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1.25, 1.25), Vector2(1.5, 1.5)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Area_MatchLoad:input_pickable")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dtxuj"]
+resource_name = "Match"
+
+[sub_resource type="Animation" id="Animation_t0cgm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("All/Area_Box_Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("All/Match_Box:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("All/Match_Box/Area_Match/Coll_Match:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("All/Area_Box_Top/Coll_Box:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("All:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("All:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Area_MatchLoad:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Area_MatchLoad/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Area_MatchLoad:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Area_MatchLoad:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6.11959e-07, -14)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Area_MatchLoad:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("All/Match_Box/Area_Match:input_pickable")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Area_MatchLoad:input_pickable")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t0cgm"]
+_data = {
+&"AllMove": SubResource("Animation_mv342"),
+&"Box_Open": SubResource("Animation_80q71"),
+&"Box_Rotation": SubResource("Animation_5rc6j"),
+&"Box_Visible": SubResource("Animation_su80s"),
+&"Match": SubResource("Animation_dtxuj"),
+&"RESET": SubResource("Animation_t0cgm")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d32o3"]
+atlas = ExtResource("4_su80s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlbdm"]
+atlas = ExtResource("4_su80s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wji1o"]
+atlas = ExtResource("4_su80s")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ti6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d32o3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlbdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wji1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlbdm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Match" type="Node2D"]
+scale = Vector2(10, 10)
+script = ExtResource("1_t0cgm")
+
+[node name="All" type="Node2D" parent="."]
+position = Vector2(0, -2.42958)
+
+[node name="Match_Box" type="Node2D" parent="All"]
+
+[node name="Sprite_Box_Bot" type="Sprite2D" parent="All/Match_Box"]
+texture = ExtResource("1_80q71")
+region_enabled = true
+region_rect = Rect2(5, 8, 23, 18)
+region_filter_clip_enabled = true
+
+[node name="Area_Match" type="Area2D" parent="All/Match_Box"]
+unique_name_in_owner = true
+
+[node name="Coll_Match" type="CollisionShape2D" parent="All/Match_Box/Area_Match"]
+unique_name_in_owner = true
+position = Vector2(6, 5.68434e-14)
+shape = SubResource("RectangleShape2D_t0cgm")
+
+[node name="SpriteMatchSave" type="Sprite2D" parent="All/Match_Box/Area_Match"]
+texture = ExtResource("1_80q71")
+region_enabled = true
+region_rect = Rect2(38, 15, 18, 3)
+region_filter_clip_enabled = true
+
+[node name="Area_Box_Top" type="Area2D" parent="All"]
+unique_name_in_owner = true
+
+[node name="Coll_Box" type="CollisionShape2D" parent="All/Area_Box_Top"]
+unique_name_in_owner = true
+position = Vector2(2.28882e-06, 0)
+shape = SubResource("RectangleShape2D_5rc6j")
+
+[node name="Sprite2D" type="Sprite2D" parent="All/Area_Box_Top"]
+texture = ExtResource("1_80q71")
+region_enabled = true
+region_rect = Rect2(5, 39, 23, 20)
+region_filter_clip_enabled = true
+
+[node name="Area_MatchLoad" type="Area2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-6.11959e-07, -14)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_MatchLoad"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_su80s")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area_MatchLoad"]
+texture = ExtResource("1_80q71")
+region_enabled = true
+region_rect = Rect2(38, 15, 18, 3)
+region_filter_clip_enabled = true
+
+[node name="AnimFire" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -6.9)
+sprite_frames = SubResource("SpriteFrames_d32o3")
+autoplay = "default"
+frame_progress = 0.525106
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_t0cgm")
+}
+
+[node name="AnimSmile" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.5, -3.4)
+sprite_frames = SubResource("SpriteFrames_6ti6c")
+autoplay = "default"
+frame_progress = 0.875563
+
+[connection signal="input_event" from="All/Match_Box/Area_Match" to="." method="_on_area_match_input_event"]
+[connection signal="input_event" from="All/Area_Box_Top" to="." method="_on_area_box_top_input_event"]
+[connection signal="input_event" from="Area_MatchLoad" to="." method="_on_area_match_load_input_event"]

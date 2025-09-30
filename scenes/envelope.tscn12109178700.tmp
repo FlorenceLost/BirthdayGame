@@ -1,0 +1,413 @@
+[gd_scene load_steps=26 format=3 uid="uid://bylquhon81mn0"]
+
+[ext_resource type="Texture2D" uid="uid://dkt702aubtgjj" path="res://assetsPerson/Sprite-0001.png" id="1_0mawi"]
+[ext_resource type="Script" uid="uid://cskb2w75xaop7" path="res://scenes/envelope.gd" id="1_bclen"]
+
+[sub_resource type="Animation" id="Animation_0mawi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteRedPoint:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_0mawi")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteRedPoint:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"envelope_Open"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpritePaper:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_0mawi")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpritePaper:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpritePaper:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SpritePaper:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.32, 1.3200004)]
+}
+
+[sub_resource type="Animation" id="Animation_cifey"]
+resource_name = "envelope_Idle"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"envelope_Idle", &"envelope_Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteRedPoint:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_0mawi"), ExtResource("1_0mawi")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteRedPoint:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_bclen"]
+resource_name = "envelope_Open"
+length = 1.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"envelope_Open", &"envelope_Open"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpritePaper:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_0mawi"), ExtResource("1_0mawi")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpritePaper:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpritePaper:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpritePaper:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.32, 1.3200004)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5slo"]
+_data = {
+&"RESET": SubResource("Animation_0mawi"),
+&"envelope_Idle": SubResource("Animation_cifey"),
+&"envelope_Open": SubResource("Animation_bclen")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uy37"]
+atlas = ExtResource("1_0mawi")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5u6p"]
+atlas = ExtResource("1_0mawi")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fahgu"]
+atlas = ExtResource("1_0mawi")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mhf6"]
+atlas = ExtResource("1_0mawi")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bclen"]
+atlas = ExtResource("1_0mawi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cifey"]
+atlas = ExtResource("1_0mawi")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mawi"]
+atlas = ExtResource("1_0mawi")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxo22"]
+atlas = ExtResource("1_0mawi")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyl6g"]
+atlas = ExtResource("1_0mawi")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nsl8"]
+atlas = ExtResource("1_0mawi")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5slo"]
+atlas = ExtResource("1_0mawi")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g5slo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uy37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5u6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fahgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mhf6")
+}],
+"loop": true,
+"name": &"envelope_Close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bclen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cifey")
+}],
+"loop": true,
+"name": &"envelope_Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mawi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxo22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyl6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nsl8")
+}],
+"loop": false,
+"name": &"envelope_Open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5slo")
+}],
+"loop": true,
+"name": &"red_Point",
+"speed": 2.0
+}]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bclen"]
+animation = &"envelope_Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0mawi"]
+animation = &"envelope_Open"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cifey"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bclen"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_uxo22"]
+states/End/position = Vector2(1011, 100)
+states/Start/position = Vector2(149, 100)
+states/envelope_Idle/node = SubResource("AnimationNodeAnimation_bclen")
+states/envelope_Idle/position = Vector2(424, 100)
+states/envelope_Open/node = SubResource("AnimationNodeAnimation_0mawi")
+states/envelope_Open/position = Vector2(715, 100)
+transitions = ["envelope_Idle", "envelope_Open", SubResource("AnimationNodeStateMachineTransition_cifey"), "Start", "envelope_Idle", SubResource("AnimationNodeStateMachineTransition_bclen")]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0mawi"]
+graph_offset = Vector2(-260.4984, -33.869797)
+nodes/output/position = Vector2(480, 60)
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_uxo22")
+nodes/StateMachine/position = Vector2(-20, 60)
+node_connections = [&"output", 0, &"StateMachine"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mawi"]
+size = Vector2(22, 10)
+
+[node name="Envelope" type="Area2D"]
+scale = Vector2(15, 15)
+script = ExtResource("1_bclen")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g5slo")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -0.559992)
+sprite_frames = SubResource("SpriteFrames_g5slo")
+animation = &"envelope_Open"
+
+[node name="SpriteRedPoint" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(11, 7.44001)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_0mawi")
+region_enabled = true
+region_rect = Rect2(55, 84, 8, 8)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
+tree_root = SubResource("AnimationNodeBlendTree_0mawi")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="SpritePaper" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(1.32, 1.3200004)
+texture = ExtResource("1_0mawi")
+region_enabled = true
+region_rect = Rect2(70, 67, 20, 25)
+
+[node name="Colli_Open" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(5.4836283e-07, -4.560002)
+shape = SubResource("RectangleShape2D_0mawi")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxvxrmqqmrm7q"]
+
+[ext_resource type="Script" uid="uid://b7nid28alke3v" path="res://scenes/rolling_balloon.gd" id="1_wo70u"]
+[ext_resource type="Texture2D" uid="uid://bh60ou8avfhpe" path="res://assetsPerson/balloon.png" id="2_s8apf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wo70u"]
+radius = 40.0125
+
+[node name="RollingBalloon" type="RigidBody2D"]
+script = ExtResource("1_wo70u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("2_s8apf")
+region_enabled = true
+region_rect = Rect2(1, 40, 15, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wo70u")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

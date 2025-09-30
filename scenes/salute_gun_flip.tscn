@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnxs7w7d86xf8"]
+
+[ext_resource type="Texture2D" uid="uid://chyim8ad8t401" path="res://assetsPerson/SaluteGun.png" id="1_7hkwc"]
+[ext_resource type="Script" uid="uid://cl14o0al571ub" path="res://scenes/salute_gun.gd" id="1_m1545"]
+
+[sub_resource type="Curve" id="Curve_m1545"]
+_data = [Vector2(0, 0.0224719), 0.0, 0.0, 0, 0, Vector2(0.198925, 1), 0.0, 0.0, 0, 0, Vector2(0.833333, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.393258), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_6ds1d"]
+curve = SubResource("Curve_m1545")
+
+[sub_resource type="Gradient" id="Gradient_5cpbb"]
+colors = PackedColorArray(0.901961, 0.34902, 0.615686, 1, 0.901961, 0.34902, 0.615686, 0.439216)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pwcgw"]
+gradient = SubResource("Gradient_5cpbb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_flg55"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(-10, -10, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1, -1, 1)
+inherit_velocity_ratio = -0.335
+direction = Vector3(-1, -1, 0)
+initial_velocity_max = 233.98
+gravity = Vector3(0, 98, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = 15.56
+scale_min = 10.0
+scale_max = 20.0
+color_ramp = SubResource("GradientTexture1D_pwcgw")
+alpha_curve = SubResource("CurveTexture_6ds1d")
+hue_variation_min = -0.27
+hue_variation_max = 0.4
+
+[node name="SaluteGunFlip" type="Node2D"]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_m1545")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_7hkwc")
+flip_h = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite2D"]
+unique_name_in_owner = true
+emitting = false
+amount = 30
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_flg55")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

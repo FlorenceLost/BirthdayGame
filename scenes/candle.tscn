@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://dvktjkx6jt23r"]
+
+[ext_resource type="Script" uid="uid://d0rc0nhfusa2" path="res://scenes/candle.gd" id="1_j6qyb"]
+[ext_resource type="Texture2D" uid="uid://b2qob0b1nqff0" path="res://assetsPerson/candle.png" id="1_ybelu"]
+[ext_resource type="Texture2D" uid="uid://dguml4a0n034d" path="res://assetsPerson/Fire.png" id="2_j6qyb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5ld6"]
+size = Vector2(44, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryllk"]
+atlas = ExtResource("2_j6qyb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6fy"]
+atlas = ExtResource("2_j6qyb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xpbc"]
+atlas = ExtResource("2_j6qyb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqccq"]
+atlas = ExtResource("2_j6qyb")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phhh4"]
+atlas = ExtResource("2_j6qyb")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yldn"]
+atlas = ExtResource("2_j6qyb")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ryllk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryllk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb6fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xpbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqccq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phhh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yldn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_3c3ph"]
+offsets = PackedFloat32Array(0, 0.456081, 1)
+colors = PackedColorArray(1, 0.968627, 0.670588, 1, 1, 0.658824, 0.254902, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_icpqd"]
+gradient = SubResource("Gradient_3c3ph")
+fill = 1
+fill_from = Vector2(0.487179, 0.5)
+fill_to = Vector2(0.790598, 0.149573)
+
+[node name="Candle" type="Node2D"]
+script = ExtResource("1_j6qyb")
+
+[node name="AreaCandle" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCandle"]
+shape = SubResource("RectangleShape2D_h5ld6")
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaCandle"]
+texture = ExtResource("1_ybelu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -50)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ryllk")
+autoplay = "default"
+frame = 3
+frame_progress = 0.498926
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+scale = Vector2(0.354167, 0.354167)
+energy = 0.5
+texture = SubResource("GradientTexture2D_icpqd")
+
+[connection signal="area_shape_entered" from="AreaCandle" to="." method="_on_area_candle_area_shape_entered"]

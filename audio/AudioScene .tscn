@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo6tpmgi3y0pc"]
+
+[ext_resource type="AudioStream" uid="uid://dqmjqipjjbuhp" path="res://audio/sfx/openbook.wav" id="1_3wugj"]
+[ext_resource type="AudioStream" uid="uid://b7kg0ucksp4pd" path="res://audio/music/florence.ogg" id="2_m0854"]
+[ext_resource type="AudioStream" uid="uid://b4knhhkpnkwo3" path="res://audio/sfx/write.wav" id="3_5ombl"]
+
+[node name="AudioScene" type="Node2D"]
+
+[node name="Music_Florence_00" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_3wugj")
+
+[node name="SFX_write" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_m0854")
+
+[node name="SFX_openbook" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5ombl")

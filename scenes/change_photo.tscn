@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgi6ou3yw5ie"]
+
+[ext_resource type="PackedScene" uid="uid://bgwhl7n43j4tl" path="res://scenes/alarm.tscn" id="1_r1bbp"]
+[ext_resource type="PackedScene" uid="uid://2b7eihcvgaid" path="res://scenes/seasons.tscn" id="2_7vnyu"]
+
+[node name="ChangePhoto" type="Node2D"]
+scale = Vector2(4.5, 4.5)
+
+[node name="Alarm" parent="." instance=ExtResource("1_r1bbp")]
+position = Vector2(0, 30)
+scale = Vector2(1.5, 1.5)
+
+[node name="Seasons" parent="." instance=ExtResource("2_7vnyu")]
+position = Vector2(0, -30)

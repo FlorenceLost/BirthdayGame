@@ -1,0 +1,27 @@
+{
+	"music": [
+		"res://audio/music/BeWithYou.mp3",
+		"res://audio/music/florence.ogg"
+	],
+	"sfx": [
+		"res://audio/sfx/bi.ogg",
+		"res://audio/sfx/bigFire.mp3",
+		"res://audio/sfx/bo.ogg",
+		"res://audio/sfx/bo2.ogg",
+		"res://audio/sfx/boxMove.mp3",
+		"res://audio/sfx/boxOpen0.mp3",
+		"res://audio/sfx/boxOpen1.mp3",
+		"res://audio/sfx/clock.ogg",
+		"res://audio/sfx/fireLoop.mp3",
+		"res://audio/sfx/happyBirthday.mp3",
+		"res://audio/sfx/inflate.mp3",
+		"res://audio/sfx/match.mp3",
+		"res://audio/sfx/openbook.wav",
+		"res://audio/sfx/pop.ogg",
+		"res://audio/sfx/pupupu.ogg",
+		"res://audio/sfx/salutePop.mp3",
+		"res://audio/sfx/switch.ogg",
+		"res://audio/sfx/switchSpotlight.mp3",
+		"res://audio/sfx/write.ogg"
+	]
+}

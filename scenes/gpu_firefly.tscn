@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://crd1o2jji6mw5"]
+
+[sub_resource type="Gradient" id="Gradient_cgvdy"]
+colors = PackedColorArray(0.8, 0.792157, 0.686275, 1, 0.945098, 0.717647, 0.0117647, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_21xtv"]
+gradient = SubResource("Gradient_cgvdy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ptj6b"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(576, 324, 0)
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 5.0
+scale_min = 5.0
+scale_max = 20.0
+color_ramp = SubResource("GradientTexture1D_21xtv")
+turbulence_enabled = true
+
+[node name="GPUFirefly" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 80
+lifetime = 10.0
+preprocess = 10.0
+process_material = SubResource("ParticleProcessMaterial_ptj6b")

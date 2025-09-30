@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://el8f4yt8pu73"]
+
+[ext_resource type="PackedScene" uid="uid://cxvxrmqqmrm7q" path="res://scenes/rolling_balloon.tscn" id="1_jkfjj"]
+
+[node name="RollingBalloonYellow" instance=ExtResource("1_jkfjj")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(1, 72, 15, 16)

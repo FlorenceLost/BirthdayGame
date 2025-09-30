@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr8h8qnpxdwhn"]
+
+[ext_resource type="Texture2D" uid="uid://dpmavjb1un5q6" path="res://assetsPerson/Switch.png" id="1_1i7pn"]
+[ext_resource type="Script" uid="uid://d1r6rnr6oqnj3" path="res://scenes/switch.gd" id="1_e08h5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e08h5"]
+size = Vector2(22, 30)
+
+[node name="Switch" type="Node2D"]
+scale = Vector2(15, 15)
+script = ExtResource("1_e08h5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_e08h5")
+
+[node name="SpriteOpen" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_1i7pn")
+region_enabled = true
+region_rect = Rect2(10, 6, 12, 20)
+
+[node name="SpriteClose" type="Sprite2D" parent="Area2D"]
+visible = false
+texture = ExtResource("1_1i7pn")
+region_enabled = true
+region_rect = Rect2(42, 6, 12, 20)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

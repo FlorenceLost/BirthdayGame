@@ -1,0 +1,109 @@
+[gd_scene load_steps=15 format=3 uid="uid://cga2tiin7eij0"]
+
+[ext_resource type="Texture2D" uid="uid://rnhkfyvvu266" path="res://assetsPerson/Match1.png" id="1_j60f5"]
+[ext_resource type="Script" uid="uid://dkwed5gxtena1" path="res://scenes/match_fire.gd" id="1_p0omn"]
+[ext_resource type="Texture2D" uid="uid://dguml4a0n034d" path="res://assetsPerson/Fire.png" id="2_p0omn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0omn"]
+size = Vector2(12.4, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2ku5"]
+size = Vector2(22, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5ld6"]
+atlas = ExtResource("2_p0omn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c3ph"]
+atlas = ExtResource("2_p0omn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icpqd"]
+atlas = ExtResource("2_p0omn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yspua"]
+atlas = ExtResource("2_p0omn")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwciw"]
+atlas = ExtResource("2_p0omn")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt856"]
+atlas = ExtResource("2_p0omn")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phhh4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5ld6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c3ph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icpqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yspua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwciw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt856")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_h5ld6"]
+offsets = PackedFloat32Array(0, 0.425676, 1)
+colors = PackedColorArray(1, 0.968627, 0.670588, 1, 1, 0.657419, 0.255644, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3c3ph"]
+gradient = SubResource("Gradient_h5ld6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.910256, 0.149573)
+
+[node name="MatchFire" type="Node2D" groups=["MatchHead"]]
+rotation = -1.5708
+scale = Vector2(5, 5)
+script = ExtResource("1_p0omn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_j60f5")
+region_enabled = true
+region_rect = Rect2(38, 15, 18, 3)
+region_filter_clip_enabled = true
+
+[node name="AreaHead" type="Area2D" parent="." groups=["MatchHead"]]
+
+[node name="CollHead" type="CollisionShape2D" parent="AreaHead"]
+position = Vector2(11.2, 3.36095e-05)
+shape = SubResource("RectangleShape2D_p0omn")
+
+[node name="AreaDrag" type="Area2D" parent="."]
+
+[node name="CollDrag" type="CollisionShape2D" parent="AreaDrag"]
+position = Vector2(-2, -5.00222e-12)
+shape = SubResource("RectangleShape2D_f2ku5")
+
+[node name="AnimFire" type="AnimatedSprite2D" parent="AreaDrag"]
+position = Vector2(7, 0)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_phhh4")
+autoplay = "default"
+frame_progress = 0.38623
+
+[node name="PointLight2D" type="PointLight2D" parent="AreaDrag"]
+position = Vector2(8.4472, 5.54482e-06)
+rotation = 1.5708
+scale = Vector2(0.31056, 0.31056)
+texture = SubResource("GradientTexture2D_3c3ph")
+
+[connection signal="input_event" from="AreaDrag" to="." method="_on_area_drag_input_event"]

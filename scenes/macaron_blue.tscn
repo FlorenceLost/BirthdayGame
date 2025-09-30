@@ -1,0 +1,192 @@
+[gd_scene load_steps=12 format=3 uid="uid://yihpvns3dyhu"]
+
+[ext_resource type="Script" uid="uid://bxpy3b7oxq1ft" path="res://scenes/macaron_blue.gd" id="1_5bvc4"]
+[ext_resource type="Texture2D" uid="uid://wa11et1wcq4s" path="res://assetsPerson/cakePurple_All.png" id="1_ss56e"]
+[ext_resource type="Script" uid="uid://dhaxn0ckag1dl" path="res://scenes/puzzle_manager.gd" id="1_xcyvg"]
+[ext_resource type="Script" uid="uid://dnt3c6cvg6e5x" path="res://scripts/Piece.gd" id="3_nwjvi"]
+
+[sub_resource type="Animation" id="Animation_nwjvi"]
+resource_name = "Dish_Move"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pieces/SpriteDish:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_ss56e"), ExtResource("1_ss56e")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pieces/SpriteDish:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.533333, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -45), Vector2(0, -40), Vector2(0, -3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pieces/SpriteDish:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.866667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.15, 1.15), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5bvc4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pieces/SpriteDish:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_ss56e")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pieces/SpriteDish:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pieces/SpriteDish:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ay4ut"]
+_data = {
+&"Dish_Move": SubResource("Animation_nwjvi"),
+&"RESET": SubResource("Animation_5bvc4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcyvg"]
+size = Vector2(22, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwjvi"]
+size = Vector2(20, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bvc4"]
+size = Vector2(20, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ay4ut"]
+size = Vector2(14.1, 14.4)
+
+[node name="Macaron_Blue" type="Node2D"]
+scale = Vector2(10, 10)
+script = ExtResource("1_5bvc4")
+
+[node name="PuzzleManager" type="Node" parent="."]
+script = ExtResource("1_xcyvg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_ay4ut")
+}
+
+[node name="Pieces" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="SpriteDish" type="Sprite2D" parent="Pieces"]
+position = Vector2(0, -3)
+texture = ExtResource("1_ss56e")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="Bot" type="Area2D" parent="Pieces"]
+position = Vector2(-33, 15)
+script = ExtResource("3_nwjvi")
+correct_zone_path = NodePath("../../Zones/Zone1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Bot"]
+shape = SubResource("RectangleShape2D_xcyvg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pieces/Bot"]
+texture = ExtResource("1_ss56e")
+region_enabled = true
+region_rect = Rect2(69, 14, 22, 13)
+
+[node name="Mid" type="Area2D" parent="Pieces"]
+position = Vector2(31, -10)
+script = ExtResource("3_nwjvi")
+correct_zone_path = NodePath("../../Zones/Zone2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Mid"]
+shape = SubResource("RectangleShape2D_nwjvi")
+
+[node name="SpriteMid" type="Sprite2D" parent="Pieces/Mid"]
+texture = ExtResource("1_ss56e")
+region_enabled = true
+region_rect = Rect2(5, 39, 22, 16)
+
+[node name="Top" type="Area2D" parent="Pieces"]
+position = Vector2(32, 16)
+script = ExtResource("3_nwjvi")
+correct_zone_path = NodePath("../../Zones/Zone3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Top"]
+shape = SubResource("RectangleShape2D_5bvc4")
+
+[node name="SpriteTop" type="Sprite2D" parent="Pieces/Top"]
+texture = ExtResource("1_ss56e")
+region_enabled = true
+region_rect = Rect2(37, 37, 22, 13)
+
+[node name="Fruit" type="Area2D" parent="Pieces"]
+position = Vector2(-36, -13)
+script = ExtResource("3_nwjvi")
+correct_zone_path = NodePath("../../Zones/Zone4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pieces/Fruit"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_ay4ut")
+
+[node name="SpriteFruit" type="Sprite2D" parent="Pieces/Fruit"]
+texture = ExtResource("1_ss56e")
+region_enabled = true
+region_rect = Rect2(82, 34, 9, 9)
+
+[node name="Zones" type="Node2D" parent="."]
+
+[node name="Zone1" type="Node2D" parent="Zones"]
+
+[node name="Zone2" type="Node2D" parent="Zones"]
+position = Vector2(0, -5)
+
+[node name="Zone3" type="Node2D" parent="Zones"]
+position = Vector2(0, -9)
+
+[node name="Zone4" type="Node2D" parent="Zones"]
+position = Vector2(8, -15)
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpo7shyny6qx0"]
+
+[ext_resource type="Script" uid="uid://b677mnmxiny3q" path="res://audio/brithday.gd" id="1_bhb0v"]
+[ext_resource type="Script" uid="uid://bxxxhj74o0gam" path="res://tool/AudioListGenerator.gd" id="2_iay0n"]
+
+[node name="Brithday" type="Node2D"]
+script = ExtResource("1_bhb0v")
+
+[node name="MusicLoad" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_iay0n")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.00784314, 0.490196, 0.407843, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)

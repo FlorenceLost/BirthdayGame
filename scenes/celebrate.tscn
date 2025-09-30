@@ -1,0 +1,188 @@
+[gd_scene load_steps=23 format=3 uid="uid://cjrw08cbdusod"]
+
+[ext_resource type="Script" uid="uid://wjmav6jlrpdp" path="res://scenes/celebrate.gd" id="1_icpqd"]
+[ext_resource type="Texture2D" uid="uid://48ugebdp6bp7" path="res://assetsPerson/cake.png" id="1_rjbp3"]
+[ext_resource type="PackedScene" uid="uid://cga2tiin7eij0" path="res://scenes/matchFire.tscn" id="4_3c3ph"]
+[ext_resource type="PackedScene" uid="uid://do06a84kuuag2" path="res://scenes/rolling_balloon_purple.tscn" id="4_7xpbc"]
+[ext_resource type="Texture2D" uid="uid://cx74p0bb3hm55" path="res://assetsPerson/light3.png" id="4_h5ld6"]
+[ext_resource type="PackedScene" uid="uid://dvktjkx6jt23r" path="res://scenes/candle.tscn" id="5_3c3ph"]
+[ext_resource type="PackedScene" uid="uid://el8f4yt8pu73" path="res://scenes/rolling_balloon_yellow.tscn" id="5_tqccq"]
+[ext_resource type="PackedScene" uid="uid://crd1o2jji6mw5" path="res://scenes/gpu_firefly.tscn" id="6_icpqd"]
+[ext_resource type="PackedScene" uid="uid://brgw4bbatwulv" path="res://scenes/box.tscn" id="7_yspua"]
+[ext_resource type="Texture2D" uid="uid://dmsyyc6576po1" path="res://assets/Ghostpixxells_pixelfood/01_dish.png" id="8_3yldn"]
+[ext_resource type="Texture2D" uid="uid://cq5yegitrr28e" path="res://assetsPerson/cakePurple.png" id="8_jt856"]
+[ext_resource type="Texture2D" uid="uid://bdrujltbcbwdb" path="res://assetsPerson/cakeRed.png" id="9_phhh4"]
+[ext_resource type="Texture2D" uid="uid://cfl5l7x54rlgv" path="res://assets/Ghostpixxells_pixelfood/34_donut.png" id="9_ryllk"]
+[ext_resource type="PackedScene" uid="uid://cxvxrmqqmrm7q" path="res://scenes/rolling_balloon.tscn" id="12_ryllk"]
+[ext_resource type="Texture2D" uid="uid://1yakawg5jetm" path="res://assets/Ghostpixxells_pixelfood/52_gingerbreadman.png" id="12_yxucf"]
+[ext_resource type="Texture2D" uid="uid://dypyi62358ca2" path="res://assets/Ghostpixxells_pixelfood/46_fruitcake.png" id="13_x0b3q"]
+[ext_resource type="Texture2D" uid="uid://5r7kaidmnvtn" path="res://assets/Ghostpixxells_pixelfood/57_icecream.png" id="14_y220w"]
+[ext_resource type="PackedScene" uid="uid://dug6hlbsq65fx" path="res://scenes/salute_gun.tscn" id="18_x0b3q"]
+[ext_resource type="PackedScene" uid="uid://bnxs7w7d86xf8" path="res://scenes/salute_gun_flip.tscn" id="19_y220w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryllk"]
+size = Vector2(36.5101, 544.034)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6fy"]
+size = Vector2(926, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c3ph"]
+size = Vector2(311, 424)
+
+[node name="Celebrate" type="Node2D"]
+script = ExtResource("1_icpqd")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = 1
+visible = false
+
+[node name="GPUFirefly" parent="ParallaxBackground" instance=ExtResource("6_icpqd")]
+position = Vector2(576, 324)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="ColliRight" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(454.74, -7.96912)
+rotation = 0.00419348
+shape = SubResource("RectangleShape2D_ryllk")
+
+[node name="ColliLeft" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-450, 0)
+shape = SubResource("RectangleShape2D_ryllk")
+
+[node name="ColliBot" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 300)
+shape = SubResource("RectangleShape2D_eb6fy")
+
+[node name="ColliTop" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -300)
+shape = SubResource("RectangleShape2D_eb6fy")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+unique_name_in_owner = true
+color = Color(0, 0, 0, 1)
+energy = 0.98
+blend_mode = 2
+
+[node name="Cake" type="Sprite2D" parent="."]
+position = Vector2(-2, 0)
+scale = Vector2(0.756944, 0.756944)
+texture = ExtResource("1_rjbp3")
+
+[node name="Spotlight" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(3, -290)
+scale = Vector2(1.11111, 1.24579)
+color = Color(0.954921, 0.963391, 0.959466, 1)
+energy = 0.51
+texture = ExtResource("4_h5ld6")
+
+[node name="Candle" parent="." instance=ExtResource("5_3c3ph")]
+position = Vector2(-22, -236)
+
+[node name="Candle2" parent="." instance=ExtResource("5_3c3ph")]
+position = Vector2(28, -236)
+
+[node name="MatchFire" parent="." instance=ExtResource("4_3c3ph")]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+position = Vector2(2, 227)
+
+[node name="AreaOpenMatch" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOpenMatch"]
+position = Vector2(-0.5, 25)
+rotation = 0.0103449
+shape = SubResource("RectangleShape2D_3c3ph")
+
+[node name="TimerMatchFire" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.5
+one_shot = true
+
+[node name="TimerCandle" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="Box" parent="." instance=ExtResource("7_yspua")]
+unique_name_in_owner = true
+position = Vector2(0, 173)
+
+[node name="Other" type="Node2D" parent="."]
+
+[node name="Node2DLeft" type="Node2D" parent="Other"]
+position = Vector2(0, 30)
+
+[node name="01Dish" type="Sprite2D" parent="Other/Node2DLeft"]
+position = Vector2(-257, 42)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("8_3yldn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Other/Node2DLeft/01Dish"]
+position = Vector2(0.8, 2.8)
+scale = Vector2(0.95, 0.775)
+texture = ExtResource("9_ryllk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Other/Node2DLeft"]
+position = Vector2(-278, 86)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("8_jt856")
+
+[node name="Sprite2D" type="Sprite2D" parent="Other/Node2DLeft"]
+position = Vector2(-240, 114)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("9_phhh4")
+
+[node name="Node2DRight" type="Node2D" parent="Other"]
+position = Vector2(-5.49, 30)
+
+[node name="SpriteFood" type="Sprite2D" parent="Other/Node2DRight"]
+position = Vector2(263, 49)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("8_3yldn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Other/Node2DRight/SpriteFood"]
+position = Vector2(0, 2)
+scale = Vector2(1, 0.875)
+texture = ExtResource("12_yxucf")
+
+[node name="SpriteFood2" type="Sprite2D" parent="Other/Node2DRight"]
+position = Vector2(287, 85)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("8_3yldn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Other/Node2DRight/SpriteFood2"]
+position = Vector2(0, 1.6)
+scale = Vector2(1, 0.9)
+texture = ExtResource("13_x0b3q")
+
+[node name="SpriteFood3" type="Sprite2D" parent="Other/Node2DRight"]
+position = Vector2(255, 110)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("8_3yldn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Other/Node2DRight/SpriteFood3"]
+position = Vector2(-0.399998, 2.4)
+scale = Vector2(0.85, 0.75)
+texture = ExtResource("14_y220w")
+
+[node name="RollingBallAll" type="Node2D" parent="."]
+
+[node name="RollingBalloon" parent="RollingBallAll" instance=ExtResource("12_ryllk")]
+position = Vector2(-179, -65)
+
+[node name="RollingBalloonYellow" parent="RollingBallAll" instance=ExtResource("5_tqccq")]
+position = Vector2(330, -195)
+
+[node name="RollingBalloonPurple" parent="RollingBallAll" instance=ExtResource("4_7xpbc")]
+position = Vector2(-284, -198)
+
+[node name="SaluteGun" parent="." instance=ExtResource("18_x0b3q")]
+position = Vector2(-360, -70)
+
+[node name="SaluteGunFlip" parent="." instance=ExtResource("19_y220w")]
+position = Vector2(360, -70)
+
+[connection signal="input_event" from="AreaOpenMatch" to="." method="_on_area_open_match_input_event"]
+[connection signal="timeout" from="TimerMatchFire" to="." method="_on_timer_match_fire_timeout"]

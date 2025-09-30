@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgwhl7n43j4tl"]
+
+[ext_resource type="Texture2D" uid="uid://c0oa41oo736pr" path="res://assetsPerson/alarm.png" id="1_60k40"]
+[ext_resource type="Script" uid="uid://cy7r0uum6a185" path="res://scenes/alarm.gd" id="1_y63g5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y63g5"]
+size = Vector2(6, 17)
+
+[node name="Alarm" type="Node2D"]
+script = ExtResource("1_y63g5")
+
+[node name="SpriteBk" type="Sprite2D" parent="."]
+texture = ExtResource("1_60k40")
+region_enabled = true
+region_rect = Rect2(1, 1, 30, 30)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_y63g5")
+
+[node name="SpriteMinute" type="Sprite2D" parent="Area2D"]
+unique_name_in_owner = true
+texture = ExtResource("1_60k40")
+offset = Vector2(0, -4.5)
+region_enabled = true
+region_rect = Rect2(47, 7, 1, 8)
+
+[node name="SpriteHour" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_60k40")
+offset = Vector2(0, -2.5)
+region_enabled = true
+region_rect = Rect2(15, 49, 1, 5)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

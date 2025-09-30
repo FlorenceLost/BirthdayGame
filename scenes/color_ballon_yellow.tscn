@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc42o7788cfwl"]
+
+[ext_resource type="PackedScene" uid="uid://cwws3ehvpijgb" path="res://scenes/color_ballon.tscn" id="1_rapti"]
+
+[node name="ColorBallonYellow" instance=ExtResource("1_rapti")]
+
+[node name="Sprite2D" parent="RigidBody2D/Node2D" index="0"]
+region_rect = Rect2(1, 72, 15, 16)

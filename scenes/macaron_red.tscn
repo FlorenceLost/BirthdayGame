@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://d58cnbb4d5gy"]
+
+[ext_resource type="PackedScene" uid="uid://yihpvns3dyhu" path="res://scenes/macaron_blue.tscn" id="1_5b12t"]
+[ext_resource type="Script" uid="uid://31bcaf0akgrm" path="res://scenes/macaron_red.gd" id="2_4t2ck"]
+[ext_resource type="Texture2D" uid="uid://b4te6ug004fq" path="res://assetsPerson/cakeRed-All.png" id="2_mmi4i"]
+
+[node name="Macaron_Red" instance=ExtResource("1_5b12t")]
+script = ExtResource("2_4t2ck")
+
+[node name="Sprite2D" parent="Pieces/Bot" index="1"]
+texture = ExtResource("2_mmi4i")
+
+[node name="SpriteMid" parent="Pieces/Mid" index="1"]
+texture = ExtResource("2_mmi4i")
+
+[node name="SpriteTop" parent="Pieces/Top" index="1"]
+texture = ExtResource("2_mmi4i")
+
+[node name="CollisionShape2D" parent="Pieces/Fruit" index="0"]
+position = Vector2(0.0499992, -0.2)
+
+[node name="SpriteFruit" parent="Pieces/Fruit" index="1"]
+texture = ExtResource("2_mmi4i")
+region_rect = Rect2(75, 39, 10, 6)
+
+[node name="Zone4" parent="Zones" index="3"]
+position = Vector2(0, -11)

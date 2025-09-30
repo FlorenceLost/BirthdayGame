@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://2b7eihcvgaid"]
+
+[ext_resource type="Texture2D" uid="uid://splbk0l4juxi" path="res://assetsPerson/seasons/photo.png" id="1_dnncg"]
+[ext_resource type="Script" uid="uid://jyk8wlptr7d3" path="res://scenes/seasons.gd" id="1_wpm73"]
+[ext_resource type="Texture2D" uid="uid://bcue7f015h0nj" path="res://assetsPerson/seasons/spring.png" id="2_wpm73"]
+[ext_resource type="Texture2D" uid="uid://qloyqvnbxslk" path="res://assetsPerson/seasons/summer.png" id="3_6434g"]
+[ext_resource type="Texture2D" uid="uid://dip5d3ongn6je" path="res://assetsPerson/seasons/autumn.png" id="4_3p7fw"]
+[ext_resource type="Texture2D" uid="uid://dh5ojb7o22t1o" path="res://assetsPerson/seasons/winter.png" id="5_d1n6g"]
+
+[node name="Seasons" type="Node2D"]
+script = ExtResource("1_wpm73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dnncg")
+
+[node name="SpriteWinter" type="Sprite2D" parent="Sprite2D"]
+unique_name_in_owner = true
+scale = Vector2(0.0805556, 0.0805556)
+texture = ExtResource("5_d1n6g")
+
+[node name="SpriteAutumn" type="Sprite2D" parent="Sprite2D"]
+unique_name_in_owner = true
+scale = Vector2(0.0805556, 0.0805556)
+texture = ExtResource("4_3p7fw")
+
+[node name="SpriteSummer" type="Sprite2D" parent="Sprite2D"]
+unique_name_in_owner = true
+scale = Vector2(0.0805556, 0.0805556)
+texture = ExtResource("3_6434g")
+
+[node name="SpriteSpring" type="Sprite2D" parent="Sprite2D"]
+unique_name_in_owner = true
+scale = Vector2(0.0805556, 0.0805556)
+texture = ExtResource("2_wpm73")
